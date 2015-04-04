@@ -1,0 +1,10 @@
+<h1>Tous les channels disponibles</h1>
+<p>Choisissez laquelle vous souhaitez écouter<p>
+
+<% @channels.each do |channel| %>
+  
+  <h3><%= channel.name %></h3>
+  <p><%= channel.description %></p>
+  <%= link_to "Ecouter !", listen_path(channel.slug) %>
+
+<% end %>

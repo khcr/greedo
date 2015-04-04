@@ -1,0 +1,10 @@
+<h1>Diffuser sur une channel</h1>
+<p>Choisissez laquelle vous souhaitez utiliser<p>
+
+<% @channels.each do |channel| %>
+  
+  <h3><%= channel.name %></h3>
+  <p><%= channel.description %></p>
+  <%= link_to "Broadcaster !", broadcast_path(channel.slug), "data-no-turbolink" => true %>
+
+<% end %>
