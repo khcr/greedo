@@ -2,7 +2,7 @@ class Admin::ChannelsController < Admin::BaseController
   before_action { |c| c.authorize_level(2) }
 
   def index
-    @table = Table.new(self, Channel)
+    @table = Table.new(self, Channel, nil, search: true)
     @table.respond
   end
 

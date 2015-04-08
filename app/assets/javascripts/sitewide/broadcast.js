@@ -1,33 +1,38 @@
 app.controller('broadcast#show', ['$scope', 'params', function($scope, params) {
 
-    navigator.webkitGetUserMedia({audio: true}, function(localMediaStream) {
+  navigator.getUserMedia = (navigator.getUserMedia ||
+                            navigator.webkitGetUserMedia ||
+                            navigator.mozGetUserMedia ||
+                            navigator.msGetUserMedia);
 
-      var peer = new Peer(params.token, {key: '9a1r2ugcykwewmi'});
+  navigator.getUserMedia({audio: true}, function(localMediaStream) {
 
-      peer.on('error', function(err) { 
-        if(err.type === "network") {
-          writeMessage($scope, "Cette channel est déjà utilisée");
-        } else if(err.type === "browser-incompatible") {
-          writeMessage($scope, "Votre navigateur n'est pas compatible");
-        } else {
-          writeMessage($scope, "Une erreur est apparue");
-        }
-      });
+    var peer = new Peer(params.token, {key: '9a1r2ugcykwewmi'});
 
-      peer.on('connection', function (dataCon) {
-
-        writeMessage($scope, "Vous avez un nouvel auditeur");
-
-        var call = peer.call(dataCon.peer, localMediaStream);
-        call.on('error', function(err) {
-          writeMessage($scope, "Une erreur est apparue");
-        });
-      });
-
-      
-    }, function() {
-      writeMessage($scope, "Impossible d'accéder à votre micro. Veuillez donner l'autorisation ou recharger la page.");
+    peer.on('error', function(err) { 
+      if(err.type === "network") {
+        writeMessage($scope, "Cette channel est déjà utilisée");
+      } else if(err.type === "browser-incompatible") {
+        writeMessage($scope, "Votre navigateur n'est pas compatible");
+      } else {
+        writeMessage($scope, "Une erreur est apparue");
+      }
     });
+
+    peer.on('connection', function (dataCon) {
+
+      writeMessage($scope, "Vous avez un nouvel auditeur");
+
+      var call = peer.call(dataCon.peer, localMediaStream);
+      call.on('error', function(err) {
+        writeMessage($scope, "Une erreur est apparue");
+      });
+    });
+
+    
+  }, function() {
+    writeMessage($scope, "Impossible d'accéder à votre micro. Veuillez donner l'autorisation ou recharger la page.");
+  });
 
     
 }]);
