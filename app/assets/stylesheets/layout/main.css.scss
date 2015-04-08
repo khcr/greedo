@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+body {
+	background: image-url('layout/wild_oliva.png');
+	width: 600px;
+	margin: auto;
+	font-family: 'Signika', sans-serif;
+	text-align: center;
+	color: #eee;
+}
+
+a {
+	text-decoration: none;
+	font-family: "Courier new", monospace;
+	color: #ddd;
+}
+
+h1 {
+	font-size: 32px;
+	line-height: 44px;
+	color: #D8DB51;
+	text-shadow: 1px 1px 1px #222;
+}
+
+#logo {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	width: 100px;
+}
+
+#container {
+	margin: 80px 0 0 0;
+}

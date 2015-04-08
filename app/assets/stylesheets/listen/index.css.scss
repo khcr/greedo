@@ -1,0 +1,27 @@
+#container.listen {
+	.subtitle {
+		padding: 0 0 30px 0;
+		text-shadow: 1px 1px 1px #222;
+	}
+	ul {
+		li {
+			margin: 5px 0;
+			padding: 7px;
+			background: rgb(135, 137, 55);
+			border-radius: 2px;
+			position: relative;
+			h3 {
+				display: inline-block;
+			}
+			p {
+				display: inline-block;
+				img {
+					position: absolute;
+					left: 4px;
+					top: 0px;
+					height: 100%;
+				}
+			}
+		}
+	}
+}

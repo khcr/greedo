@@ -1,10 +1,13 @@
+<% content_for :id, "listen" %>
+
 <h1>Tous les channels disponibles</h1>
-<p>Choisissez laquelle vous souhaitez écouter<p>
+<p class="subtitle">Choisissez le channel que vous souhaitez écouter<p>
 
+<ul>
 <% @channels.each do |channel| %>
-  
-  <h3><%= channel.name %></h3>
-  <p><%= channel.description %></p>
-  <%= link_to "Ecouter !", listen_path(channel.slug) %>
-
+  <li>
+	  <h3><%= channel.name %></h3>
+	  <p><%= link_to image_tag("listen/sound48.png"), listen_path(channel.slug) %> <%= channel.description %> <%= link_to "Ecouter", listen_path(channel.slug) %></p>
+	</li>
 <% end %>
+</ul>
