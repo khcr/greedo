@@ -6,8 +6,11 @@
 <ul>
 <% @channels.each do |channel| %>
   <li>
-	  <h3><%= channel.name %></h3>
-	  <p><%= link_to image_tag("listen/sound48.png"), listen_path(channel.slug) %> <%= channel.description %> <%= link_to "Ecouter", listen_path(channel.slug) %></p>
+	  <h3><%= link_to channel.name, listen_path(channel.slug) %></h3>
+	  <p>
+	  	• <%= link_to image_tag("listen/sound48.png"), listen_path(channel.slug) %>
+	  	<%= channel.description %> <%= link_to "Ecouter", listen_path(channel.slug) %>
+	  </p>
 	</li>
 <% end %>
 </ul>

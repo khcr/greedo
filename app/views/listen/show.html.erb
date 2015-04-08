@@ -1,7 +1,9 @@
+<% content_for :id, "listen-show" %>
+
 <h1><%= @channel.name %></h1>
 
-{{ warning }}
+<p>{{ warning }}</p>
 
-<%= link_to "Retour à la liste", "/listen" %>
+<p><%= link_to "↩ Retour à la liste", "/listen" %></p>
 
 <audio controls autoplay></audio>

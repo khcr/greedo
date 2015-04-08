@@ -1,10 +1,17 @@
+<% content_for :id, "broadcast" %>
+
 <h1>Diffuser sur une channel</h1>
-<p>Choisissez laquelle vous souhaitez utiliser<p>
+<p class="subtitle">Choisissez laquelle vous souhaitez utiliser<p>
 
-<% @channels.each do |channel| %>
-  
-  <h3><%= channel.name %></h3>
-  <p><%= channel.description %></p>
-  <%= link_to "Broadcaster !", broadcast_path(channel.slug), "data-no-turbolink" => true %>
-
-<% end %>
+<ul>
+	<% @channels.each do |channel| %>
+	<li>
+	  <h3><%= channel.name %></h3>
+	  <p>
+	  	• <%= link_to image_tag("broadcast/media19.png"), broadcast_path(channel.slug) %>
+	  	<%= channel.description %>
+	  	<%= link_to "Broadcaster", broadcast_path(channel.slug), "data-no-turbolink" => true %>
+		</p>
+	</li>
+	<% end %>
+</ul>
