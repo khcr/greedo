@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -54,3 +57,18 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'capistrano', '~> 3.3.0'
+
+# rails specific capistrano funcitons
+gem 'capistrano-rails', '~> 1.1.0'
+
+# integrate bundler with capistrano
+gem 'capistrano-bundler'
+
+# if you are using RBENV
+gem 'capistrano-rvm'
+
+gem 'capistrano-maintenance', github: 'capistrano/maintenance', require: false
+
+# server
+gem 'puma'
