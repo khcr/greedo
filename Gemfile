@@ -35,7 +35,7 @@ gem 'will_paginate'
 gem 'carrierwave'
 
 # tables
-gem 'snaptable', path: '../snaptable'
+gem 'snaptable'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
