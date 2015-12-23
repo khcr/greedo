@@ -1,11 +1,9 @@
-role :app, %w{pi@192.168.178.43}
-role :web, %w{pi@192.168.178.43}
-role :db,  %w{pi@192.168.178.43}
+role :app, %w{pi@192.168.1.50}
+role :web, %w{pi@192.168.1.50}
+role :db,  %w{pi@192.168.1.50}
 
 # Define server(s)
-server '192.168.178.43', user: 'pi', roles: %w{web app db}, primary: true
-
-ask(:password, nil, echo: false)
+server '192.168.1.50', user: 'pi', roles: %w{web app db}, primary: true
 
 # SSH Options
 # See the example commented out section in the file
@@ -14,5 +12,5 @@ set :ssh_options, {
     forward_agent: true,
     user: 'pi',
     port: 22,
-    password: fetch(:password)
+    password: "raspberry"
 }

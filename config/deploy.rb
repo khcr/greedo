@@ -22,25 +22,6 @@ set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:application)}"
 # Default value for :pty is false
 # set :pty, false
 
-set :server_files, [
-  {
-    name: "nginx.conf.erb",
-    path: "/etc/nginx/sites-enabled/#{fetch(:application)}"
-  },
-  {
-    name: "puma-manager.conf.erb",
-    path: "/etc/init/puma-manager.conf"
-  },
-  {
-    name: "puma-upstart.conf.erb",
-    path: "/etc/init/puma.conf"
-  },
-  {
-    name: "puma.conf",
-    path: "/etc/puma.conf"
-  }
-]
-
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push("config/database.yml")
 set :linked_files, %w{config/database.yml config/secrets.yml config/puma.rb}
@@ -59,22 +40,6 @@ set :maintenance_template_path, "config/deploy/templates/maintenance.html.erb"
 set :keep_releases, 5
 
 namespace :deploy do
-  # make sure we're deploying what we think we're deploying
-  before :deploy, "deploy:check_revision"
-
   # cleanup
   after :finishing, "deploy:cleanup"
-
-  # before :started, "deploy:setup_config"
-  before :setup_config, "puma:stop"
-  after :setup_config, "puma:start"
-
-  # reload nginx to it will pick up any modified vhosts from
-  # setup_config
-  after :setup_config, "nginx:reload"
-
-  # As of Capistrano 3.1, the `deploy:restart` task is not called
-  # automatically.
-  after :publishing, "puma:restart"
-
 end
