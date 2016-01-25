@@ -3,6 +3,7 @@ lock "3.3.5"
 
 set :application, "greedo"
 set :deploy_user, "pi"
+set :ssl, true
 
 set :scm, "git"
 set :repo_url, "git@github.com:khcr/greedo.git"

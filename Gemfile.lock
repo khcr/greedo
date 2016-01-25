@@ -1,16 +1,15 @@
 GIT
-  remote: git://github.com/JS-Tech/capistrano-server.git
-  revision: da4baa3c9062e4e72f3df0d4f59192d843a4aa01
-  specs:
-    capistrano-server (0.4.1)
-      capistrano (~> 3.1)
-
-GIT
   remote: git://github.com/capistrano/maintenance.git
   revision: b31962d2ac134fae5e2f536380956a1042895c1e
   specs:
     capistrano-maintenance (1.0.0)
       capistrano (>= 3.0)
+
+PATH
+  remote: ../capistrano-server
+  specs:
+    capistrano-server (0.4.1)
+      capistrano (~> 3.1)
 
 GEM
   remote: https://rubygems.org/
