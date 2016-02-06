@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require init.js
 //= require turbolinks
+//= require angular
+//= require peer
 //= require snaptable
+//= require init.js
 //= require_tree ./sitewide
