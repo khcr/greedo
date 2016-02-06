@@ -16,7 +16,7 @@ app.controller('listen#show', ['$scope', 'params', function($scope, params) {
     });
   };
 
-  var peer = new Peer({ host: 'localhost', port: 9000 });
+  var peer = new Peer({ host: '192.168.178.58', port: 9000 });
 
   peer.on('error', function (err) {
 

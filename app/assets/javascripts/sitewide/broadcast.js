@@ -7,7 +7,7 @@ app.controller('broadcast#show', ['$scope', 'params', function($scope, params) {
 
   navigator.getUserMedia({audio: true}, function(localMediaStream) {
 
-    var peer = new Peer(params.token, { host: 'localhost', port: 9000 });
+    var peer = new Peer(params.token, { host: '192.168.178.58', port: 9000 });
 
     peer.on('error', function(err) {
       if(err.type === "network") {
