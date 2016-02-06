@@ -7,9 +7,9 @@ app.controller('broadcast#show', ['$scope', 'params', function($scope, params) {
 
   navigator.getUserMedia({audio: true}, function(localMediaStream) {
 
-    var peer = new Peer(params.token, {key: '9a1r2ugcykwewmi'});
+    var peer = new Peer(params.token, { host: 'localhost', port: 9000 });
 
-    peer.on('error', function(err) { 
+    peer.on('error', function(err) {
       if(err.type === "network") {
         writeMessage($scope, "Cette channel est déjà utilisée");
       } else if(err.type === "browser-incompatible") {
@@ -29,10 +29,10 @@ app.controller('broadcast#show', ['$scope', 'params', function($scope, params) {
       });
     });
 
-    
+
   }, function() {
     writeMessage($scope, "Impossible d'accéder à votre micro. Veuillez donner l'autorisation ou recharger la page.");
   });
 
-    
+
 }]);

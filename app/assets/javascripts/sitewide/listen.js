@@ -15,10 +15,10 @@ app.controller('listen#show', ['$scope', 'params', function($scope, params) {
       $scope.$apply();
     });
   };
-    
-  peer = new Peer({key: '9a1r2ugcykwewmi'});
 
-  peer.on('error', function (err) { 
+  var peer = new Peer({ host: 'localhost', port: 9000 });
+
+  peer.on('error', function (err) {
 
     if(err.type === "browser-incompatible") {
       writeMessage($scope, "Votre navigateur n'est pas compatible");
